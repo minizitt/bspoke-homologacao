@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- ARQUIVO GERADO AUTOMATICAMENTE por build.py — não edite direto.
+     Edite em src/ ou partials/ e rode `python3 build.py` de novo. -->
+<script>document.documentElement.classList.add('js')</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — BSPOKE</title>
+<meta name="description" content="Tem um desafio de marketing, marca, tecnologia ou crescimento? Conte o contexto para a BSPOKE. A melhor resposta começa pelo problema certo.">
+<link rel="canonical" href="https://zitt-182.github.io/site_institucional-bspoke_v1/contato.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BSPOKE">
+<meta property="og:title" content="Contato — BSPOKE">
+<meta property="og:description" content="Tem um desafio de marketing, marca, tecnologia ou crescimento? Conte o contexto para a BSPOKE. A melhor resposta começa pelo problema certo.">
+<meta property="og:url" content="https://zitt-182.github.io/site_institucional-bspoke_v1/contato.html">
+<meta property="og:image" content="https://zitt-182.github.io/site_institucional-bspoke_v1/img/og-cover.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contato — BSPOKE">
+<meta name="twitter:description" content="Tem um desafio de marketing, marca, tecnologia ou crescimento? Conte o contexto para a BSPOKE. A melhor resposta começa pelo problema certo.">
+<meta name="twitter:image" content="https://zitt-182.github.io/site_institucional-bspoke_v1/img/og-cover.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="shortcut icon" href="img/favicon.ico">
+<meta name="theme-color" content="#0C0C0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="nav" class="scrolled">
+  <div class="nav__container">
+    <a href="index.html" class="nav__logo"><img src="img/bspoke_wordmark_white.png" alt="BSPOKE"></a>
+    <div class="nav__links">
+      <a href="sobre.html"    class="nav__link">Sobre</a>
+      <a href="divisoes.html" class="nav__link">Especialidades</a>
+      <a href="cases.html"    class="nav__link">Cases</a>
+      <a href="equipe.html"   class="nav__link">Equipe</a>
+      <a href="contato.html"  class="nav__cta">Contato</a>
+    </div>
+    <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-controls="mobMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+  <div class="mob-menu__inner">
+    <a href="sobre.html"    class="mob-menu__link">01 — Sobre</a>
+    <a href="divisoes.html" class="mob-menu__link">02 — Especialidades</a>
+    <a href="cases.html"    class="mob-menu__link">03 — Cases</a>
+    <a href="equipe.html"   class="mob-menu__link">04 — Equipe</a>
+    <a href="contato.html"  class="mob-menu__link">05 — Contato</a>
+  </div>
+</div>
+<!-- clientes.html foi removida do build (Arquitetura Global V2): não está
+     mais em pages.json, não é mais gerada, e nunca teve link em
+     navegação pública (menu principal ou rodapé). -->
+
+<!-- 01 — HERO: .pg-hero puro, sem modificador — mesma escala, grid e
+     tipografia de Sobre/Especialidades/Cases/Equipe. Nenhuma redução
+     de escala scoped pra Contato: a continuidade com o resto do site
+     importa mais que alguns pixels a menos de altura aqui. -->
+<section class="pg-hero">
+  <div class="container">
+    <div class="pg-hero__inner">
+      <div><span class="label">05 — CONTATO</span></div>
+      <div>
+        <h1 class="pg-hero__title">TRAGA<br>O PROBLEMA.</h1>
+        <p class="pg-hero__sub">Você não precisa chegar com a solução. Conte o que precisa acontecer. A gente começa daí.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — MAIN CONTACT: grid var(--label-col) 1fr, o mesmo eixo de
+     .pg-hero__inner/.position__inner/.esp-intro__inner/.cs-intro__inner/
+     .eq-core__inner/.ct-next__inner — não um grid novo. Label na coluna
+     esquerda; contexto + formulário + contato direto empilhados na
+     mesma coluna de corpo à direita, começando no mesmo eixo x do
+     resto do site. -->
+<section class="ct-main">
+  <div class="container">
+    <div class="ct-main__inner">
+      <div><span class="label">05.1 — Start With The Challenge</span></div>
+      <div>
+        <h2 class="ct-hl">Conte o que precisa acontecer.</h2>
+        <p class="ct-body">Pode ser um desafio claro ou algo que ainda não tem nome. Quanto mais contexto você trouxer, melhor.</p>
+
+        <!-- Sem novalidate de propósito: a Constraint Validation API nativa
+             do browser (required/type="email") bloqueia o submit e foca o
+             primeiro campo inválido antes do evento "submit" sequer disparar
+             — nenhuma lógica de validação extra precisa existir no JS. -->
+        <form class="c-form" action="https://formsubmit.co/contato@bspoke.com.br" method="POST">
+
+          <!-- config FormSubmit.co: sem backend próprio, envia direto pro e-mail -->
+          <input type="hidden" name="_subject" value="Novo contato via site BSPOKE">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <!-- honeypot anti-spam: invisível para humanos, bots costumam preencher -->
+          <div class="fg fg--honey" aria-hidden="true">
+            <label for="_honey">Deixe em branco</label>
+            <input type="text" id="_honey" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+
+          <!-- Metadata: nome/empresa/e-mail/telefone, 2 colunas no desktop,
+               gap compatível com o resto do sistema. Sem eyebrow — a
+               hierarquia vem de escala/spacing, não de mais um label. -->
+          <div class="ct-form__meta">
+            <div class="fg">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" placeholder="Seu nome completo" autocomplete="name" required>
+            </div>
+
+            <div class="fg">
+              <label for="empresa">Empresa</label>
+              <input id="empresa" name="empresa" type="text" placeholder="Nome da empresa" autocomplete="organization" required>
+            </div>
+
+            <div class="fg">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="seu@email.com.br" autocomplete="email" required>
+            </div>
+
+            <div class="fg">
+              <label for="telefone">Telefone</label>
+              <input id="telefone" name="telefone" type="tel" placeholder="+55 (11) 00000-0000" autocomplete="tel">
+            </div>
+          </div>
+
+          <!-- Campo principal: o próprio label é a pergunta, sem eyebrow
+               extra por cima (ver .ct-field-core em style.css). Mesmo
+               id/name/placeholder/required de sempre. -->
+          <div class="fg ct-field-core">
+            <label for="desafio">O que precisa acontecer?</label>
+            <textarea id="desafio" name="desafio" placeholder="Conte o contexto, o desafio ou aquilo que você gostaria de transformar." required></textarea>
+          </div>
+
+          <!-- Fechamento do formulário: como conheceu (secondary context,
+               mesmo peso discreto da metadata, estrutura própria
+               .ct-select que resolve a sobreposição de label sobre o
+               <select> nativo na origem — sem custom select em JS) e o
+               CTA culminando na mesma linha (.ct-form__close), pra o
+               botão não ficar como peça solta abaixo do select. -->
+          <div class="ct-form__close">
+            <div class="ct-select">
+              <label class="ct-select__label" for="como_conheceu">Como conheceu a BSPOKE?</label>
+              <div class="ct-select__control">
+                <select id="como_conheceu" name="como_conheceu">
+                  <option value="" disabled selected>Selecione (opcional)</option>
+                  <option value="Indicação">Indicação</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Busca">Busca</option>
+                  <option value="Evento">Evento</option>
+                  <option value="Já conhecia a BSPOKE">Já conhecia a BSPOKE</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-sub">
+              <button type="submit" class="btn btn--primary">Enviar desafio →</button>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- Contato direto: fecha a coluna de corpo, sem coluna estrutural
+             própria — só e-mail (mailto real) e localização. Sem redes
+             sociais fictícias (nenhuma URL real validada até hoje). -->
+        <div class="ct-direct">
+          <span class="label">Prefere Falar Direto?</span>
+          <p class="ct-direct__email"><a href="mailto:contato@bspoke.com.br">contato@bspoke.com.br</a></p>
+          <p class="ct-direct__loc">São Paulo, Brasil</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — WHAT HAPPENS NEXT: mesmo grid label-col 1fr, fechamento
+     editorial compacto — sem etapas numeradas, sem timeline, sem SLA. -->
+<section class="ct-next">
+  <div class="container">
+    <div class="ct-next__inner">
+      <div><span class="label">05.2 — What Happens Next</span></div>
+      <div>
+        <h2 class="ct-hl">A conversa começa pelo contexto.</h2>
+        <p class="ct-body">Se fizer sentido trabalharmos juntos, desenhamos a configuração certa para o problema — antes de definir o entregável.</p>
+      </div>
+    </div>
+    <p class="ct-next__close">Primeiro o problema. Depois, a <span class="text-accent">resposta</span>.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><img src="img/bspoke_wordmark_white.png" alt="BSPOKE"></div>
+        <p class="footer__tag">Engineered for Impact.</p>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Navegação</span>
+        <a href="sobre.html">Sobre</a>
+        <a href="divisoes.html">Especialidades</a>
+        <a href="cases.html">Cases</a>
+        <a href="equipe.html">Equipe</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Especialidades</span>
+        <a href="divisoes.html#bspoke">CMO-as-a-Service</a>
+        <a href="divisoes.html#brandhub">Brand Hub</a>
+        <a href="divisoes.html#bluenote">Bluenote</a>
+        <a href="divisoes.html#revmetrics">RevMetrics</a>
+        <a href="divisoes.html#slickworks">SlickWorks</a>
+      </div>
+      <div class="footer__col">
+        <span class="footer__col-title">Contato</span>
+        <p>contato@bspoke.com.br</p>
+        <p>São Paulo, Brasil</p>
+      </div>
+    </div>
+    <div class="footer__btm">
+      <span>© <span id="year">2026</span> BSPOKE. Todos os direitos reservados.</span>
+      <span>Engineered for Impact.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
