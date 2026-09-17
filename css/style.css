@@ -64,7 +64,12 @@
   --space-3xl: 128px;
 
   /* padding vertical de <section> — cada valor corresponde a um papel narrativo,
-     não a uma escolha arbitrária por seção (ver comentário "RITMO" antes de cada seção da Home) */
+     não a uma escolha arbitrária por seção (ver comentário "RITMO" antes de cada seção da Home).
+     PHASE 2A — MOBILE VERTICAL RHYTHM: os valores abaixo são exclusivamente desktop e
+     permanecem intocados nesta rodada. --section-tight/base/loose passam a ser redefinidos
+     dentro de @media (max-width:900px) e @media (max-width:600px) — ver RESPONSIVE —, mesmo
+     padrão já usado por --gutter. Nenhuma seção teve seu token trocado: a herança via custom
+     property já propaga a redução para todo componente que consome --section-tight/base/loose. */
   --section-tight: 96px;   /* seções de método/estrutura — mais densas, mais próximas */
   --section-base:  128px;  /* a maioria das seções editoriais */
   --section-loose: 176px;  /* seções-protagonista: Selected Work, CTA final */
@@ -1652,7 +1657,17 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
   .eq-leader--02 { flex-direction: row-reverse; }
 }
 @media (max-width: 900px) {
-  :root { --gutter: 24px; }
+  :root {
+    --gutter: 24px;
+    /* PHASE 2A — MOBILE VERTICAL RHYTHM: estado intermediário. Reaproveita degraus já
+       existentes na escala --space-* (nenhum valor novo criado); hierarquia
+       tight < base < loose preservada (64 < 96 < 128). tight 96→64 (-33%) ·
+       base 128→96 (-25%) · loose 176→128 (-27%). Valores desktop em :root (linha ~68)
+       intocados — esta é a única redefinição destes 3 tokens nesta faixa. */
+    --section-tight: var(--space-xl);
+    --section-base:  var(--space-2xl);
+    --section-loose: var(--space-3xl);
+  }
   .nav__links { display: none; }
   .nav__burger { display: flex; }
   .hero__grid { grid-template-columns: 1fr; }
@@ -1804,7 +1819,17 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
   .values__grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  :root { --gutter: 18px; }
+  :root {
+    --gutter: 18px;
+    /* PHASE 2A — MOBILE VERTICAL RHYTHM: estado compacto (320-430px). Hierarquia
+       tight < base < loose preservada (48 < 64 < 96). tight 96→48 (-50%) ·
+       base 128→64 (-50%) · loose 176→96 (-45%) — loose reduz proporcionalmente
+       menos: seções-protagonista (.cta-band, fechamento de 5 páginas) mantêm mais
+       presença mesmo no estado mais compacto, evitando achatar tudo no mesmo valor. */
+    --section-tight: var(--space-l);
+    --section-base:  var(--space-xl);
+    --section-loose: var(--space-2xl);
+  }
   .footer__grid { grid-template-columns: 1fr; }
   .footer__btm { flex-direction: column; gap: 10px; text-align: center; }
   .cta-band__hl { font-size: clamp(38px,10vw,64px); }
