@@ -1699,7 +1699,12 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
   .case-item--03 .case-item__grid,
   .case-item--04 .case-item__grid {
     grid-template-columns: 1fr;
-    grid-template-areas: "meta" "hl" "vis" "proof";
+    /* PHASE 2C.1 — CASES MOBILE READING ORDER: proof (texto) reordenado para logo
+       depois de hl (título) — preserva título+texto como unidade de leitura no
+       empilhamento, igual à adjacência já existente acima de 900px. vis passa a
+       fechar cada case. Só troca a posição das áreas nomeadas; grid-area de cada
+       filho (.case-item__meta/__headline/__proof/__visual) não muda. */
+    grid-template-areas: "meta" "hl" "proof" "vis";
     row-gap: var(--space-m);
   }
   .case-item--01, .case-item--02, .case-item--03, .case-item--04 { --vis-ratio: 4 / 3; }
