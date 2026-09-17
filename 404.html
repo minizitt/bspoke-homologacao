@@ -5,6 +5,19 @@
      Edite em src/ ou partials/ e rode `python3 build.py` de novo. -->
 <script>document.documentElement.classList.add('js')</script>
 <meta charset="UTF-8">
+<script>
+(function () {
+  var host = location.hostname;
+  var base = "/";
+  if (host === "bspoke.com.br" || host === "www.bspoke.com.br") {
+    base = "/";
+  } else if (host.slice(-10) === ".github.io") {
+    var seg = location.pathname.split("/")[1];
+    base = seg ? "/" + seg + "/" : "/";
+  }
+  document.write('<base href="' + base + '">');
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Página não encontrada — BSPOKE</title>
 <meta name="robots" content="noindex, follow">
