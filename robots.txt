@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bspoke.com.br/sitemap.xml

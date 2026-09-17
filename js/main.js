@@ -130,19 +130,23 @@ function initNav() {
     });
   }
 
-  /* Active state por filename: compara o href de cada link (relativo à
-     própria página) com o filename atual. Nas páginas de raiz isso é uma
-     comparação direta ("cases.html" === "cases.html"). Dentro de /cases/
-     (PROMPT 14) os links do nav levam um prefixo "../" (ex.: "../cases.html")
-     e o filename atual é o do case (ex.: "militec-ecommerce.html"), então a
-     comparação direta nunca bateria — daí o caso extra abaixo: se a página
-     está dentro de /cases/, o link cujo alvo (sem o "../") é "cases.html"
-     também é marcado ativo. Páginas de raiz não são afetadas. */
-  const cur = location.pathname.split('/').pop() || 'index.html';
-  const inCasesDetail = /\/cases\//.test(location.pathname);
+  /* Active state por pathname: PHASE 1 (TECHNICAL SEO) trocou URLs
+     terminadas em .html por clean URLs de diretório (ex.: /sobre/,
+     /cases/militec-ecommerce/) — a comparação antiga por nome de arquivo
+     ("cases.html" === "cases.html") deixou de funcionar porque
+     location.pathname agora termina em "/" (o filename literal é
+     sempre "index.html", igual em toda página). A comparação correta
+     passa a ser por PATH resolvido: new URL(href, location.href).pathname
+     já resolve "../", "../../" etc. exatamente como o browser resolveria
+     um clique — funciona em qualquer profundidade sem precisar calcular
+     nada manualmente. Case Detail (2 níveis abaixo da raiz) continua
+     marcando "Cases" como ativo por estar dentro de /cases/, igual antes. */
+  const norm = p => (p.endsWith('/') ? p : p + '/');
+  const curPath = norm(location.pathname);
+  const inCasesDetail = /^\/cases\/[^/]+\/?$/.test(curPath);
   document.querySelectorAll('.nav__link').forEach(a => {
-    const hrefFile = a.getAttribute('href').split('/').pop();
-    if (hrefFile === cur || (inCasesDetail && hrefFile === 'cases.html')) {
+    const linkPath = norm(new URL(a.getAttribute('href'), location.href).pathname);
+    if (linkPath === curPath || (inCasesDetail && linkPath === '/cases/')) {
       a.classList.add('active');
     }
   });
