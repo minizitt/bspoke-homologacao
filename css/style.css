@@ -875,7 +875,11 @@ html.js .hero__l { transform: translateY(110%); }
    grid-template-areas em .case-item--01..04. "One editorial system,
    different editorial moments" — não são quatro componentes, é um grid
    resolvido de quatro formas. */
-.case-system { padding: var(--section-tight) 0; }
+/* PHASE 2B — DIVIDER NORMALIZATION: section boundary (03.2 → 03.3) passou a
+   pertencer à própria section, full-bleed, igual a todo outro boundary do
+   site — em vez de ficar contida no container via .case-item--04 (ver
+   comentário abaixo, atualizado). Nenhuma mudança de padding/spacing. */
+.case-system { padding: var(--section-tight) 0; border-bottom: 1px solid var(--border); }
 
 /* Transição intro → primeiro case: o label alinha com a coluna onde "01"
    vai aparecer logo abaixo (mesma faixa de 2 colunas da metadata), criando
@@ -886,14 +890,15 @@ html.js .hero__l { transform: translateY(110%); }
 
 /* Cada .case-item define seu próprio --vis-ratio e seu próprio ritmo
    vertical (padding), evitando a cadência de "quatro linhas de tabela".
-   Sem border-bottom por hábito entre capítulos — a mudança de escala e
-   de proporção visual já separa um do outro; só o último recebe uma
-   hairline, marcando a transição para o registro mais silencioso de
-   The Constant. */
+   Sem border-bottom entre capítulos — a mudança de escala e de proporção
+   visual já separa um do outro. PHASE 2B: a hairline de fechamento antes de
+   The Constant deixou de viver aqui (container-bound) e passou para
+   .case-system (full-bleed, ver acima) — mesma transição editorial, agora
+   com a mesma extensão horizontal de todo outro section boundary do site. */
 .case-item { padding: var(--space-l) 0; }
 .case-item--02 { padding-top: var(--space-xl); }
 .case-item--03 { padding-top: var(--space-xl); padding-bottom: var(--space-l); }
-.case-item--04 { padding-bottom: var(--space-xl); border-bottom: 1px solid var(--border); }
+.case-item--04 { padding-bottom: var(--space-xl); }
 
 .case-item__grid {
   display: grid;
