@@ -1686,6 +1686,17 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
   .cap-chapter__grid { grid-template-columns: 1fr; gap: var(--space-m); }
   .cap-chapter__caps { padding-top: var(--space-m); border-top: 1px solid var(--border); }
   .clients-grid { grid-template-columns: repeat(2,1fr); }
+  /* PHASE 2C.2 — correção de omissão: .cs-intro__inner/.cs-constant__inner usam a
+     mesma técnica de label-column de .esp-intro__inner (ver comentário em
+     .cs-intro, linha ~851) mas nunca tinham sido redefinidos aqui, ao contrário de
+     todo componente equivalente (.pg-hero__inner/.esp-intro__inner/.position__inner/
+     .eq-core__inner/.ct-main__inner/.cd-block__inner) — causa raiz da compressão
+     título/texto reportada em teste real. gap:20px replica exatamente
+     .esp-intro__inner (linha ~1680), o componente do qual .cs-intro é
+     explicitamente modelado; .cs-constant reaproveita o mesmo valor por
+     consistência interna da própria página (mesma lógica de grid, mesmo comentário
+     "mesma lógica de label-column" em .cs-constant). */
+  .cs-intro__inner, .cs-constant__inner { grid-template-columns: 1fr; gap: 20px; }
   /* Cases colapsa pra um único stack disciplinado, igual pros 4 momentos:
      metadata compacta → headline → visual em largura cheia → proof
      (challenge/especialidades/CTA). As 4 composições de desktop deixam de
