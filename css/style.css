@@ -1851,7 +1851,27 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
     --section-base:  var(--space-xl);
     --section-loose: var(--space-2xl);
   }
-  .footer__grid { grid-template-columns: 1fr; }
+  /* PHASE 2D.1 — MOBILE FOOTER COMPOSITION: em vez do empilhamento total
+     (Logo / Navegação / Especialidades / Contato, 4 linhas), o footer
+     passa a usar 2 colunas com o 1º e o último filho (branding e
+     Contato) ocupando a largura cheia via :first-child/:last-child —
+     menor mecanismo possível, HTML intocado, sem precisar distinguir
+     Navegação de Especialidades (ambos .footer__col). column-gap usa
+     --space-s (20px, já existente) em vez do gap:44px herdado do
+     breakpoint 900px: em 2 colunas 44px consome largura horizontal
+     relevante em 320-390px; 20px preserva separação clara mantendo as
+     colunas confortáveis. row-gap usa --space-l (48px, já existente),
+     o valor da escala mais próximo do respiro vertical anterior (44px),
+     preservando a sensação de ritmo já aprovada. */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-s);
+    row-gap: var(--space-l);
+  }
+  .footer__grid > *:first-child,
+  .footer__grid > *:last-child {
+    grid-column: 1 / -1;
+  }
   .footer__btm { flex-direction: column; gap: 10px; text-align: center; }
   .cta-band__hl { font-size: clamp(38px,10vw,64px); }
   .specialties__grid { grid-template-columns: 1fr; }
