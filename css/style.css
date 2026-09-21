@@ -1603,29 +1603,6 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
   color: var(--gray-mid); flex-shrink: 0;
 }
 
-/* LEGAL.1 — PRIVACIDADE/COOKIES: as duas páginas reaproveitam
-   .cd-block/.cd-block__inner/.cd-index/.label/.cd-block__p tal como
-   estão (zero override) para a sequência de seções numeradas — inclusive
-   o colapso mobile de .cd-block__inner já existente na media query
-   abaixo, que não precisou de nenhum ajuste. Só 3 classes novas, todas
-   reaproveitando tokens já existentes, nenhuma cor/fonte/espaçamento
-   inventado:
-   — .legal-block: hairline entre seções consecutivas (mesmo
-     border-top:1px var(--border) já usado em .cd-block--insight/
-     .cd-outcome), necessário aqui porque são 11-13 seções em sequência
-     direta, diferente do Case Detail (só 5 capítulos, nem todos
-     precisam de divisor);
-   — .legal-list: lista com marcador para os vários "- item" do
-     conteúdo jurídico — não existia equivalente no site (as únicas
-     listas prévias são .cd-built-list, numerada com índice, e
-     .eq-built__words, nuvem de palavras). Reaproveita a mesma
-     tipografia de .cd-block__p e o mesmo prefixo "—" de
-     .cd-built-list__before, só sem o número;
-   — .legal-subhead: subtítulo dentro de uma seção (ex.: "Quando você
-     entra em contato pelo site" dentro da seção 01) — não existia H3
-     dentro de .cd-block. Usa a mesma família/peso de .pillar__title,
-     em escala menor (--text-h4, já existente) por ser 1 nível abaixo
-     do .label da seção. */
 .legal-block { border-top: 1px solid var(--border); }
 .legal-list { list-style: none; margin: var(--space-xs) 0 var(--space-m); padding: 0; max-width: 640px; }
 .legal-list li {
@@ -1636,11 +1613,6 @@ html.js .rv.in, html.js .rv-l.in, html.js .rv-r.in { opacity: 1; transform: none
   content: "—"; position: absolute; left: 0;
   font-family: var(--font-mono); color: var(--gray-mid);
 }
-.legal-subhead {
-  font-family: var(--font-disp); font-weight: 600; font-size: var(--text-h4);
-  color: var(--white); margin: var(--space-m) 0 var(--space-2xs);
-}
-.legal-subhead:first-child { margin-top: 0; }
 
 /* IMPACT — papel "CONCLUDE" (ROUND 4, item 23): o ponto de maior
    autoridade tipográfica da página — maior que Insight, porque Impact é
