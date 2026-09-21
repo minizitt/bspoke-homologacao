@@ -337,6 +337,23 @@ function initForm() {
     msg.classList.add('show');
   }
 
+  // Caminho específico de erro: mesmo texto/classes de setMsg(), mas o
+  // e-mail de contato vira link real. Nó construído via createElement/
+  // createTextNode (sem innerHTML) e isolado aqui — setMsg() e as
+  // mensagens de sucesso continuam exatamente como estavam.
+  function setErrorMsgWithMailto(before, email, after) {
+    msg.textContent = '';
+    msg.appendChild(document.createTextNode(before));
+    const link = document.createElement('a');
+    link.href = 'mailto:' + email;
+    link.textContent = email;
+    msg.appendChild(link);
+    msg.appendChild(document.createTextNode(after));
+    msg.classList.remove('is-ok', 'is-error');
+    msg.classList.add('is-error');
+    msg.classList.add('show');
+  }
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
@@ -372,7 +389,7 @@ function initForm() {
       form.reset();
     } catch (err) {
       btn.textContent = 'Erro no envio';
-      setMsg('Não conseguimos enviar agora. Tente novamente ou escreva para contato@bspoke.com.br.', 'is-error');
+      setErrorMsgWithMailto('Não conseguimos enviar agora. Tente novamente ou escreva para ', 'contato@bspoke.com.br', '.');
     } finally {
       setTimeout(() => {
         btn.textContent = orig;
