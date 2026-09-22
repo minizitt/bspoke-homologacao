@@ -385,7 +385,7 @@ function initForm() {
       // Button System existente (.btn.btn--primary), sem variante própria
       // de formulário.
       btn.textContent = 'Mensagem Enviada ✓';
-      setMsg('Desafio recebido. Obrigado por compartilhar o contexto — entraremos em contato em breve.', 'is-ok');
+      setMsg('Desafio recebido. Obrigado por compartilhar o contexto. Entraremos em contato em breve.', 'is-ok');
       form.reset();
     } catch (err) {
       btn.textContent = 'Erro no envio';
